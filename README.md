@@ -1,20 +1,22 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Maestro Hub
 
-# Run and deploy your AI Studio app
+Maestro Hub is a React and Express command center with tasks, focus sessions,
+calendar, vault, wealth, golf, and a server-side Gemini assistant.
 
-This contains everything you need to run your app locally.
+## Run locally
 
-View your app in AI Studio: https://ai.studio/apps/68d629c9-2c5a-42fe-ab32-c0f606e99a8d
+1. Run `npm ci`.
+2. Copy `.env.example` to `.env` and set `GEMINI_API_KEY` if AI responses are required.
+3. Run `npm run dev`.
 
-## Run Locally
+## Verification
 
-**Prerequisites:**  Node.js
+- Type check: `npm run lint`
+- Production build: `npm run build`
+- Production server: `npm start`
+- Health check: `GET /api/health`
 
+## Render
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+The included `render.yaml` builds and runs the web service, mounts persistent SQLite
+storage at `/var/data`, and prompts for the server-only Gemini key during setup.
