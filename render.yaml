@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: maestro-hub
+    runtime: node
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_PATH
+        value: /var/data/maestro.db
+      - key: GEMINI_API_KEY
+        sync: false
+    disk:
+      name: maestro-hub-data
+      mountPath: /var/data
+      sizeGB: 1
